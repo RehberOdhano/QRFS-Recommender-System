@@ -1,5 +1,5 @@
 # Importing the required modules
-from flask import Flask, make_response
+from flask import Flask, make_response # for flask server
 
 import numpy as np 
 import pandas as pd
@@ -66,17 +66,11 @@ def trainLSVCModelAndGetPrediction(complaint):
     
     return res
 
-# The route() function of the Flask class is a decorator,
-# which tells the application which URL should call
-# the associated function.
-@app.route('/')
-# ‘/’ URL is bound with greetings() function.
-def greetings():
-	return 'WELCOME TO OUR WORLD - QRFS'
 
 @app.route('/predict/<complaint>', methods=['POST'])
 def predict(complaint):
     prediction = trainLSVCModelAndGetPrediction(complaint);
+    print("prediction: ", prediction);
     return make_response(prediction[0], 200)
 
 # main driver function
