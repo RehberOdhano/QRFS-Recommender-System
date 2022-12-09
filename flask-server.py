@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 def loadDataSet():
     # loading dataset
-    df = pd.DataFrame(pd.read_csv(r'F:\CUI\QRFS-FYP\Backend Implementation\Flask-Server\dataset.csv'))
+    df = pd.DataFrame(pd.read_csv(r'F:\CUI\QRFS-FYP\Flask-Server\dataset.csv'))
     df = df.loc[:,["CATEGORY", "COMPLAINT"]]
     return df
 
